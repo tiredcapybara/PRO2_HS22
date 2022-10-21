@@ -1,4 +1,4 @@
-# Rank my Music
+# What's My Music
 ### Problembeschreibung
 Musik ist etwas, das die meisten Menschen interessiert. 
 Viele setzen sich aber nicht sehr mit der von ihnen gehörten Musik auseinander. 
@@ -18,5 +18,8 @@ Statistiken ansehen. Beispielsweise:
 ### Dateneingabe
 Man erstellt einen neuen Eintrag und gibt alle relevanten Informationen ein.
 Als Basis-Eintrag zählt ein Album, inkl. Band und nach Bedarf auch einzelne Songs.
+Das Genre des Albums wird auch aufgezeichnet, um nachher relevante Statistiken
+aus den Daten gewinnen zu können.
+Die Alben sowie die Lieder müssen auf einer Skala von 1 bis 10 bewertet werden.
 
 Es
