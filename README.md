@@ -14,12 +14,13 @@ Statistiken ansehen. Beispielsweise:
 - Wie hat sich mein Geschmack in Genres mit der Zeit verändert?
 - Wie lange höre ich mich diesen Künstler an?
 - Wie viele neue Bands habe ich im letzten Jahr entdeckt?
+- Welche Genres und Bands haben die höchsten Bewertungen erhalten?
 
 ### Dateneingabe
 Man erstellt einen neuen Eintrag und gibt alle relevanten Informationen ein.
 Als Basis-Eintrag zählt ein Album, inkl. Band und nach Bedarf auch einzelne Songs.
 Das Genre des Albums wird auch aufgezeichnet, um nachher relevante Statistiken
 aus den Daten gewinnen zu können.
-Die Alben sowie die Lieder müssen auf einer Skala von 1 bis 10 bewertet werden.
+Die Alben sowie die Lieder müssen auf einer Skala von 1 bis 5 bewertet werden.
 
-Es
+
