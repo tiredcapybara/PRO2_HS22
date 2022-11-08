@@ -4,6 +4,10 @@ from flask import render_template
 
 app = Flask("Rechner")
 
+@app.route("/test")
+def test():
+    return render_template("pretty_rechner.html")
+
 @app.route("/add", methods=["GET", "POST"])
 def add():
     print(f" Method: {request.method}")
