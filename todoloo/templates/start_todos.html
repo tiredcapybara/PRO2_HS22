@@ -1,0 +1,19 @@
+{% include "header.jinja" %}
+
+
+<body>
+{% for eintrag in liste %}
+
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{ eintrag[1] }}</h5>
+      <p class="card-text">{{ eintrag[0] }}</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+
+
+{% endfor %}
+{% include "footer.jinja" %}
+</body>
+</html>

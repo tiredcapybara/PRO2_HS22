@@ -1,44 +1,5 @@
-<!doctype html>
-<html lang="en">
+{% include "header.jinja" %}
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Neuer Eintrag</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="/static/main.css">
-
-</head>
-
-<body>
-  <!-- Navigation Header -->
-    <nav class=" my-navigation navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">What's my Music?</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="/statistiken">Statistiken</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/vorschlaege">Vorschläge</a>
-        </li>
-        <li class="dropdown">
-          <a class="nav-item nav-link dropdown-toggle" href="/archiv" data-toggle="dropdown">Archiv</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Künstler</a>
-            <a class="dropdown-item" href="#">Alben</a>
-            <a class="dropdown-item" href="#">Songs</a>
-            <a class="dropdown-item" href="#">Genres</a>
-          </div>
-        </li>
-
-      </ul>
-    </div>
-  </nav>
 
 <form>
   <!-- 2 column grid layout with text inputs for the first and last names -->
@@ -103,10 +64,9 @@
       <p>© Alessia De Luca</p>
     </div>
   </div>
-  <!-- Script -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-  <script src="static/main.js"></script>
+
+
+ {% include "footer.jinja" %}
 </body>
 
 </html>

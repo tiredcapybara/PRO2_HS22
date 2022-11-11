@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Todoloo - Todo Form</title>
-        <link href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-
-
-</head>
+{% include "header.jinja" %}
 <body>
 
 <form method="POST">
@@ -22,7 +14,7 @@
   <button type="submit" class="btn btn-primary">Abschicken</button>
 </form>
 
-<script src="{{ url_for('static', filename='bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+{% include "footer.jinja" %}
 
 </body>
 </html>
