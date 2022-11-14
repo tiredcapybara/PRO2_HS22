@@ -1,7 +1,9 @@
 {% include "header.jinja" %}
 <h2>Archiv</h2>
 {% for eintrag in liste %}
-
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-4">
   <div class="card" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">{{ eintrag[0] }}</h5>
@@ -12,8 +14,10 @@
       <p class="card-text">Rating: {{ eintrag[5] }} von 5 Sternen</p>
     </div>
   </div>
-
+    </div>
+  </div>
+</div>
 
 {% endfor %}
 
- {% include "footer.jinja" %}
+{% include "footer.jinja" %}
