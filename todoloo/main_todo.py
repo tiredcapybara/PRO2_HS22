@@ -30,7 +30,7 @@ def add_new_todo():
         deadline = request.form['deadline']
         print(f"Request Form Aufgabe: {aufgabe}")
         print(f"Request Form Deadline: {deadline}")
-        abspeichern(aufgabe, deadline)
+        abspeichern(aufgabe, deadline, genre, gehoert, release)
         return "yes funktioniert"
 
 

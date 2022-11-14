@@ -1,12 +1,19 @@
 {% include "header.jinja" %}
+<h2>Archiv</h2>
+{% for eintrag in liste %}
 
-  <!-- Footer -->
-  <div class="bottom">
-    <div class=" my-footer bg-dark text-center text-white">
-      <p>© Alessia De Luca</p>
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{ eintrag[0] }}</h5>
+      <p class="card-text">Intepret: {{ eintrag[1] }}</p>
+      <p class="card-text">Genre: {{ eintrag[2] }}</p>
+      <p class="card-text">Erscheinungsjahr: {{ eintrag[4] }}</p>
+      <p class="card-text">Gehört am: {{ eintrag[3] }}</p>
+      <p class="card-text">Rating: {{ eintrag[5] }} von 5 Sternen</p>
     </div>
   </div>
 
- {% include "footer.jinja" %}
 
-</html>
+{% endfor %}
+
+ {% include "footer.jinja" %}

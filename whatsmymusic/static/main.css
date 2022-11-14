@@ -13,9 +13,10 @@
     padding-top: 15px;
 }
 
-.star-rating {
-    line-height:32px;
-    font-size:1.25em;
-  }
-  
-  .star-rating .fa-star{color: #f0ad4e;}
+h2 {
+margin-top: 100px;
+margin-bottom: 25px;
+}
+
+body {
+margin-left: 25px;}

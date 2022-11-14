@@ -4,8 +4,8 @@ def auslesen():
     return inhalt
 
 
-def abspeichern(aufgabe, deadline):
+def abspeichern(titel, intepret, genre, gehoert, release):
     current_content = auslesen()
-    new_content = current_content + f"\n{aufgabe}, {deadline}"
+    new_content = current_content + f"\n{titel}, {intepret}"
     with open("database.csv", "w") as open_file:
         open_file.write(new_content)

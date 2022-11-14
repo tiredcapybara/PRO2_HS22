@@ -1,16 +1,46 @@
 {% include "header.jinja" %}
+<h2>Neuer Eintrag</h2>
 
-<div>
-
-</div>
-  <!-- Footer -->
-  <div class="bottom">
-    <div class=" my-footer bg-dark text-center text-white">
-      <p>© Alessia De Luca</p>
+<div class="container-fluid">
+  <form method="POST">
+    <div class="form-group w-50">
+      <label for="titel">Titel</label>
+      <input type="text" class="form-control" id="titel" name="titel">
     </div>
-  </div>
+    <div class="form-group w-50">
+      <label for="intepret">Intepret</label>
+      <input type="text" class="form-control" id="intepret" name="intepret">
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <div class="form-group">
+          <label for="genre">Genre</label>
+          <input type="text" class="form-control" id="genre" name="genre">
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="form-group">
+          <label for="rating">Rating</label>
+          <input type="text" class="form-control" id="rating" name="rating">
+        </div>
+      </div>
+    </div>
 
- {% include "footer.jinja" %}
-</body>
-
-</html>
+    <div class="row">
+      <div class="col-4">
+        <div class="form-group">
+          <label for="gehoert">Gehört am</label>
+          <input type="date" class="form-control" id="gehoert" name="gehoert">
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="form-group">
+          <label for="release">Erscheinungsjahr</label>
+          <input type="text" class=" date-year form-control" id="release" name="release">
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-lg btn-danger">Erstellen</button>
+  </form>
+</div>
+{% include "footer.jinja" %}
