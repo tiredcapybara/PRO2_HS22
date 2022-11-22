@@ -15,21 +15,21 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Was für einen Eintrag willst du machen?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Was für einen Eintrag willst du erstellen?</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
             <div class="form-check">
-              <input class="form-check-input" type="radio" value="" id="defaultCheck1">
-              <label class="form-check-label" for="defaultCheck1">
+              <input class="form-check-input" type="radio" name="radio-but" value="album" id="album">
+              <label class="form-check-label" for="album">
                 Album
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" value="" id="defaultCheck2">
-              <label class="form-check-label" for="defaultCheck2">
+              <input class="form-check-input" type="radio" name="radio-but" value="song" id="song">
+              <label class="form-check-label" for="song">
                 Song
               </label>
             </div>
@@ -51,7 +51,7 @@
           </div>
           <div class="card-body">
             <p class="card-text">Alle deine Lieblingskünstler auf einem Blick.</p>
-            <button type="button" class="btn btn-block btn-danger">Ansehen</button>
+            <a href="/archiv-intepret" class="btn btn-block btn-danger" role="button">Ansehen</a>
           </div>
         </div>
       </div>
@@ -64,7 +64,7 @@
           </div>
           <div class="card-body">
             <p class="card-text">Chronik deiner Musikalben.</p>
-            <button type="button" class="btn btn-block btn-danger">Ansehen</button>
+            <a href="/archiv-alben" class="btn btn-block btn-danger" role="button">Ansehen</a>
           </div>
         </div>
       </div>
@@ -77,7 +77,7 @@
           </div>
           <div class="card-body">
             <p class="card-text">Der Stil von deinem täglichen Soundtrack.</p>
-            <button type="button" class="btn btn-block btn-danger">Ansehen</button>
+            <a href="/archiv-genres" class="btn btn-block btn-danger" role="button">Ansehen</a>
           </div>
         </div>
       </div>
