@@ -1,11 +1,1 @@
-[
-  {
-    "id": 0,
-    "titel":"Mockingbird",
-    "intepret":"Eminem",
-    "genre": "Rap",
-    "gehoert": "2022-11-02",
-    "release": 2002,
-    "rating": 4
-  }
-]
+[{"id": 0, "titel": "Mockingbird", "intepret": "Eminem", "genre": "Rap", "gehoert": "2022-11-02", "release": 2002, "rating": 4}, {"id": 1, "titel": "Hello", "intepret": "Adele", "genre": "Pop", "gehoert": "2022-11-11", "release": "2015", "rating": "2"}, {"id": 2, "titel": "Brazil", "intepret": "Declan Mckenna", "genre": "indie rock", "gehoert": "2022-11-10", "release": "2015", "rating": "5"}, {"id": 3, "titel": "New Rules", "intepret": "Dua Lipa", "genre": "Pop", "gehoert": "2022-11-26", "release": "2017", "rating": "3"}, {"id": 4, "titel": "Kids", "intepret": "MGMT", "genre": "Electronic", "gehoert": "2022-10-04", "release": "2008", "rating": "4"}, {"id": 5, "titel": "Thriller", "intepret": "Michael Jackson", "genre": "Pop", "gehoert": "2022-07-25", "release": "1982", "rating": "5"}, {"id": 6, "titel": "Without me", "intepret": "Eminem", "genre": "Rap", "gehoert": "2022-11-20", "release": "2002", "rating": "5"}]

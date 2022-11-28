@@ -1,17 +1,10 @@
-from flask import Flask
-from flask import render_template
-from flask import request, redirect
-
-
-from whatsmymusic.datenbank import abspeichern
-from whatsmymusic.datenbank import auslesen
-from whatsmymusic.datenbankalb import abspeichernalb
-from whatsmymusic.datenbankalb import auslesenalb
+from flask import Flask, render_template, request, redirect
+from whatsmymusic.datenbank import auslesen, auslesenalb, album_speichern, song_speichern
 
 app = Flask("whatsmymusic")
 
 
-# Routen verschiedene Seiten
+# Routen zu Seiten
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -23,19 +16,9 @@ def neualbum():
         return render_template("neuer-eintrag-album.html")
 
     if request.method == "POST":
-        albtitel = request.form["albtitel"]
-        albintepret = request.form["albintepret"]
-        albgenre = request.form["albgenre"]
-        albgehoert = request.form["albgehoert"]
-        albrelease = request.form["albrelease"]
-        albrating = request.form["albrating"]
-        print(f"Request Form Titel: {albtitel}")
-        print(f"Request Form Intepret: {albintepret}")
-        print(f"Request Form Genre: {albgenre}")
-        print(f"Request Form Gehört am: {albgehoert}")
-        print(f"Request Form Erscheinungsjahr: {albrelease}")
-        print(f"Request Form Rating: {albrating}")
-        abspeichernalb(albtitel, albintepret, albgenre, albgehoert, albrelease, albrating)
+        daten_alben = request.form.to_dict()
+        album_speichern(daten_alben)
+        print(daten_alben)
         return redirect("/archiv")
 
 
@@ -45,32 +28,15 @@ def neusong():
         return render_template("neuer-eintrag-song.html")
 
     if request.method == "POST":
-        titel = request.form['titel']
-        intepret = request.form['intepret']
-        genre = request.form['genre']
-        gehoert = request.form['gehoert']
-        release = request.form['release']
-        rating = request.form['rating']
-        print(f"Request Form Titel: {titel}")
-        print(f"Request Form Intepret: {intepret}")
-        print(f"Request Form Genre: {genre}")
-        print(f"Request Form Gehört am: {gehoert}")
-        print(f"Request Form Erscheinungsjahr: {release}")
-        print(f"Request Form Rating: {rating}")
-        abspeichern(titel, intepret, genre, gehoert, release, rating)
+        daten_songs = request.form.to_dict()
+        song_speichern(daten_songs)
         return redirect("/archiv")
 
 
 @app.route("/archiv")
 def archivopen():
     songs = auslesen()
-    songs_html = songs.replace("\n", "<br>")
-    songs_liste = songs.split("\n")
-    neue_liste = []
-    for eintrag in songs_liste:
-        titel, intepret, genre, gehoert, release, rating = eintrag.split(",")
-        neue_liste.append([titel, intepret, genre, gehoert, release, rating])
-    return render_template("archiv.html", liste=neue_liste)
+    return render_template("archiv.html", songs=songs)
 
 
 @app.route("/statistiken")

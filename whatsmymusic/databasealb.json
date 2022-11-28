@@ -1,11 +1,1 @@
-[
-  {
-    "id": 0,
-    "titel": "What Do You Think About the Car?",
-    "intepret": "Declan Mckenna",
-    "genre": "Indie Rock",
-    "gehoert": "2022-11-24",
-    "release": 2017,
-    "rating": 5
-  }
-]
+[{"id": 0, "titel": "What Do You Think About the Car?", "intepret": "Declan Mckenna", "genre": "Indie Rock", "gehoert": "2022-11-24", "release": 2017, "rating": 5}, {"id": 1, "titel": "Be The Cowboy", "intepret": "Mitski", "genre": "Indie Rock", "gehoert": "2022-11-13", "release": "2018", "rating": "4"}]

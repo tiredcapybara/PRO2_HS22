@@ -1,18 +1,18 @@
 {% include "header.jinja" %}
 <div class="content-main">
 <h2>Archiv</h2>
-{% for eintrag in liste %}
+{% for eintrag in songs %}
 <div class="container-fluid">
   <div class="row">
     <div class="col-4">
   <div class="card" style="width: 18rem;">
     <div class="card-body">
-      <h5 class="card-title">{{ eintrag[0] }}</h5>
-      <p class="card-text">Intepret: {{ eintrag[1] }}</p>
-      <p class="card-text">Genre: {{ eintrag[2] }}</p>
-      <p class="card-text">Erscheinungsjahr: {{ eintrag[4] }}</p>
-      <p class="card-text">Gehört am: {{ eintrag[3] }}</p>
-      <p class="card-text">Rating: {{ eintrag[5] }} von 5 Sternen</p>
+      <h5 class="card-title">{{ eintrag["titel"] }}</h5>
+      <p class="card-text">Intepret: {{ eintrag["intepret"] }}</p>
+      <p class="card-text">Genre: {{ eintrag["genre"] }}</p>
+      <p class="card-text">Erscheinungsjahr: {{ eintrag["release"] }}</p>
+      <p class="card-text">Gehört am: {{ eintrag["gehoert"] }}</p>
+      <p class="card-text">Rating: {{ eintrag["rating"] }} von 5 Sternen</p>
     </div>
   </div>
     </div>

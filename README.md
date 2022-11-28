@@ -6,7 +6,7 @@ Durch dieses Projekt soll man achtsamer über die Musik nachdenken und auch
 das eigene Verhalten analysieren.
 
 Mit dieser kleinen Web Applikation will ich die von mir 
-angehörten Bands, Alben oder Songs bewerten, nach Genre und anderen
+angehörten Alben oder Songs bewerten, nach Genre und anderen
 Kategorien einteilen. Man kann dann verschiedenste Ranglisten und
 Statistiken ansehen. Beispielsweise:
 
@@ -18,9 +18,9 @@ Statistiken ansehen. Beispielsweise:
 
 ### Dateneingabe
 Man erstellt einen neuen Eintrag und gibt alle relevanten Informationen ein.
-Als Basis-Eintrag zählt ein Album, inkl. Band und nach Bedarf auch einzelne Songs.
-Das Genre des Albums wird auch aufgezeichnet, um nachher relevante Statistiken
-aus den Daten gewinnen zu können.
-Die Alben sowie die Lieder müssen auf einer Skala von 1 bis 5 bewertet werden.
+Als Basis-Eintrag zählt ein Album oder ein einzelner Song, die relevanten Informationen
+wie Künstler, Genre, Erscheinungsjahr etc. werden auch festgehalten.
+Die Alben sowie die Lieder müssen jeweils auf einer Skala von 1 bis 5 bewertet werden.
+Anhand dieser extra-Informationen können dann die Listen und Statistiken erstellt werden.
 
 
