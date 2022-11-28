@@ -1,9 +1,12 @@
 from flask import Flask
 from flask import render_template
-from flask import request
+from flask import request, redirect
+
 
 from whatsmymusic.datenbank import abspeichern
 from whatsmymusic.datenbank import auslesen
+from whatsmymusic.datenbankalb import abspeichernalb
+from whatsmymusic.datenbankalb import auslesenalb
 
 app = Flask("whatsmymusic")
 
@@ -14,9 +17,26 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/neuer-eintrag-album")
+@app.route("/neuer-eintrag-album", methods=["GET", "POST"])
 def neualbum():
-    return render_template("neuer-eintrag-album.html")
+    if request.method == "GET":
+        return render_template("neuer-eintrag-album.html")
+
+    if request.method == "POST":
+        albtitel = request.form["albtitel"]
+        albintepret = request.form["albintepret"]
+        albgenre = request.form["albgenre"]
+        albgehoert = request.form["albgehoert"]
+        albrelease = request.form["albrelease"]
+        albrating = request.form["albrating"]
+        print(f"Request Form Titel: {albtitel}")
+        print(f"Request Form Intepret: {albintepret}")
+        print(f"Request Form Genre: {albgenre}")
+        print(f"Request Form Gehört am: {albgehoert}")
+        print(f"Request Form Erscheinungsjahr: {albrelease}")
+        print(f"Request Form Rating: {albrating}")
+        abspeichernalb(albtitel, albintepret, albgenre, albgehoert, albrelease, albrating)
+        return redirect("/archiv")
 
 
 @app.route("/neuer-eintrag-song", methods=["GET", "POST"])
@@ -38,7 +58,7 @@ def neusong():
         print(f"Request Form Erscheinungsjahr: {release}")
         print(f"Request Form Rating: {rating}")
         abspeichern(titel, intepret, genre, gehoert, release, rating)
-        return "Eintrag gespeichert Neuer Eintrag"
+        return redirect("/archiv")
 
 
 @app.route("/archiv")

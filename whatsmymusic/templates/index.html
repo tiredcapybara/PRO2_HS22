@@ -1,95 +1,41 @@
+<!-- Header -->
 {% include "header.jinja" %}
 
-
+<!-- Titel -->
   <div class="container mt-5">
     <div class="pt-5 mx-auto">
       <h1 class="display-2">Willkommen zurück.</h1>
       <p class="lead">Lass uns wieder loslegen.</p>
-      <button type="button" class="btn btn-primary btn-lg btn-danger" data-toggle="modal"
-        data-target="#exampleModal">Neuen Eintrag Erstellen</button>
     </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Was für einen Eintrag willst du erstellen?</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+    <!-- Row für Cards -->
+    <div class="row">
+      <!-- Card 1 Songs -->
+      <div class="col-lg-6">
+        <div class="card mb-6 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Neuer Song festhalten</h4>
           </div>
-          <div class="modal-body">
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="radio-but" value="album" id="album">
-              <label class="form-check-label" for="album">
-                Album
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="radio-but" value="song" id="song">
-              <label class="form-check-label" for="song">
-                Song
-              </label>
-            </div>
+          <div class="card-body">
+            <p class="card-text">Hast du einen neuen Song gehört?</p>
+            <a href="/neuer-eintrag-song" class="btn btn-block btn-danger" role="button">Eintrag erstellen</a>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Abbrechen</button>
-            <button type="button" class="btn btn-danger">Weiter</button>
+        </div>
+      </div>
+
+      <!-- Card 2 Alben-->
+      <div class="col-lg-6">
+        <div class="card mb-6 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Neues Album festhalten</h4>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Ganzes Album eintragen</p>
+            <a href="/neuer-eintrag-album" class="btn btn-block btn-danger" role="button">Eintrag erstellen</a>
           </div>
         </div>
       </div>
     </div>
-    <!-- Row von Cards -->
-    <div class="row mb-3">
-      <!-- Card 1 -->
-      <div class="col-sm-6 col-md-4">
-        <div class="card mb-4 box-shadow">
-          <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Künstler</h4>
-          </div>
-          <div class="card-body">
-            <p class="card-text">Alle deine Lieblingskünstler auf einem Blick.</p>
-            <a href="/archiv-intepret" class="btn btn-block btn-danger" role="button">Ansehen</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="col-sm-6 col-md-4">
-        <div class="card mb-4 box-shadow">
-          <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Alben</h4>
-          </div>
-          <div class="card-body">
-            <p class="card-text">Chronik deiner Musikalben.</p>
-            <a href="/archiv-alben" class="btn btn-block btn-danger" role="button">Ansehen</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="col-sm-6 col-md-4">
-        <div class="card mb-4 box-shadow">
-          <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Genres</h4>
-          </div>
-          <div class="card-body">
-            <p class="card-text">Der Stil von deinem täglichen Soundtrack.</p>
-            <a href="/archiv-genres" class="btn btn-block btn-danger" role="button">Ansehen</a>
-          </div>
-        </div>
-      </div>
-    </div> <!-- row -->
   </div>
-
-
-  <!-- Footer -->
-  <div class="fixed-bottom">
-
+<!-- Footer -->
 {% include "footer.jinja" %}
-  </div>
-</body>
-
-</html>
