@@ -1,26 +1,62 @@
 {% include "header.jinja" %}
 <div class="content-main">
-<h2>Archiv</h2>
-{% for eintrag in songs %}
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-4">
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">{{ eintrag["titel"] }}</h5>
-      <p class="card-text">Intepret: {{ eintrag["intepret"] }}</p>
-      <p class="card-text">Genre: {{ eintrag["genre"] }}</p>
-      <p class="card-text">Erscheinungsjahr: {{ eintrag["release"] }}</p>
-      <p class="card-text">Gehört am: {{ eintrag["gehoert"] }}</p>
-      <p class="card-text">Rating: {{ eintrag["rating"] }} von 5 Sternen</p>
-    </div>
-  </div>
-    </div>
-  </div>
-</div>
+    <h2>Archiv</h2>
+    <h4> Filtern nach....</h4>
+    <p>Welche Beiträge willst du filtern?</p>
+    <form method="POST">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+                Songs
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+            <label class="form-check-label" for="flexCheckChecked">
+                Alben
+            </label>
+        </div>
 
-{% endfor %}
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Nach Künstler filtern</option>
+            {% for eintrag in songs %}
+            <option {{ eintrag["intepret"] }}></option>
+            {% endfor %}
+        </select>
+
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Nach Genre filtern</option>
+            {%for genre in genres %}
+                <option value="{{ genre }}">{{ genre }}</option>
+            {% endfor %}
+        </select>
+
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Nach Erscheinungsjahr filtern</option>
+            <option value="1">Genre</option>
+            <option value="2">Genre</option>
+            <option value="3">Genre</option>
+        </select>
+
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Nach Hörmonat filtern</option>
+            <option value="1">Monat</option>
+            <option value="2">Monat</option>
+            <option value="3">Monat</option>
+        </select>
+
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Nach Bewertung filtern</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="3">4</option>
+            <option value="3">5</option>
+        </select>
+
+        <button type="submit" class="btn btn-lg btn-danger">Filtern</button>
+    </form>
+
 </div>
 
 {% include "footer.jinja" %}
-

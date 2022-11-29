@@ -1,48 +1,48 @@
 {% include "header.jinja" %}
 <div class="content-main">
-<h2>Neuer Eintrag</h2>
+    <h2>Neuer Eintrag</h2>
 
-<div class="container-fluid">
-  <form method="POST">
-    <div class="form-group w-50">
-      <label for="titel">Titel</label>
-      <input type="text" class="form-control" id="titel" name="titel" required>
-    </div>
-    <div class="form-group w-50">
-      <label for="intepret">Intepret</label>
-      <input type="text" class="form-control" id="intepret" name="intepret" required>
-    </div>
-    <div class="row">
-      <div class="col-4">
-        <div class="form-group">
-          <label for="genre">Genre</label>
-          <input type="text" class="form-control" id="genre" name="genre" required>
-        </div>
-      </div>
-      <div class="col-4">
-        <div class="form-group">
-          <label for="rating">Rating</label>
-          <input type="number" min="1" max="5" class="form-control" id="rating" name="rating" required>
-        </div>
-      </div>
-    </div>
+    <div class="container-fluid">
+        <form method="POST">
+            <div class="form-group w-50">
+                <label for="titel">Titel</label>
+                <input type="text" class="form-control" id="titel" name="titel" required>
+            </div>
+            <div class="form-group w-50">
+                <label for="intepret">Intepret</label>
+                <input type="text" class="form-control" id="intepret" name="intepret" required>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="genre">Genre</label>
+                        <input type="text" class="form-control" id="genre" name="genre" required>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="rating">Rating</label>
+                        <input type="number" min="1" max="5" class="form-control" id="rating" name="rating" required>
+                    </div>
+                </div>
+            </div>
 
-    <div class="row">
-      <div class="col-4">
-        <div class="form-group">
-          <label for="gehoert">Gehört am</label>
-          <input type="date" class="form-control" id="gehoert" name="gehoert" required>
-        </div>
-      </div>
-      <div class="col-4">
-        <div class="form-group">
-          <label for="release">Erscheinungsjahr</label>
-          <input type="number" class="form-control" id="release" name="release" required>
-        </div>
-      </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="gehoert">Gehört am</label>
+                        <input type="date" class="form-control" id="gehoert" name="gehoert" required>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="release">Erscheinungsjahr</label>
+                        <input type="number" class="form-control" id="release" name="release" required>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-lg btn-danger">Erstellen</button>
+        </form>
     </div>
-    <button type="submit" class="btn btn-lg btn-danger">Erstellen</button>
-  </form>
 </div>
-  </div>
 {% include "footer.jinja" %}

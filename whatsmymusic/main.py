@@ -1,15 +1,17 @@
+# Importe
 from flask import Flask, render_template, request, redirect
 from whatsmymusic.datenbank import auslesen, auslesenalb, album_speichern, song_speichern
 
 app = Flask("whatsmymusic")
 
 
-# Routen zu Seiten
+# Route Startseite
 @app.route("/")
 def index():
     return render_template("index.html")
 
 
+# Route Album-Eintrag erstellen
 @app.route("/neuer-eintrag-album", methods=["GET", "POST"])
 def neualbum():
     if request.method == "GET":
@@ -22,6 +24,7 @@ def neualbum():
         return redirect("/archiv")
 
 
+# Route Song-Eintrag erstellen
 @app.route("/neuer-eintrag-song", methods=["GET", "POST"])
 def neusong():
     if request.method == "GET":
@@ -33,16 +36,33 @@ def neusong():
         return redirect("/archiv")
 
 
+# Route Archiv öffnen
 @app.route("/archiv")
 def archivopen():
-    songs = auslesen()
-    return render_template("archiv.html", songs=songs)
+    genre = ["Rock", "Rap"]
+    return render_template("archiv.html", genres=genre)
 
+    # Wie kann ich zwischen Alben und Songs unterscheiden? If Checkmark1 == Songs?
+    #if request.method == "GET":
+      #  return render_template("archiv.html")
+    #if request.method == "POST":
+
+#songs = auslesen()
+#   selection = []
+  #  for song in songs:
+ #       if song["genre"] == "Rock":
+ #           selection.append(song)
+
+
+@app.route("/bearbeiten")
+def eintragbearbeiten():
+    return render_template("bearbeiten.html")
 
 @app.route("/statistiken")
 def statistikopen():
     return render_template("statistiken.html")
 
 
+# Run App
 if __name__ == "__main__":
     app.run(debug=True, port=5005)

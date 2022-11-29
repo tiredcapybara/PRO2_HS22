@@ -23,7 +23,7 @@ def song_speichern(daten):
     songs.append(song)
     print(songs)
 
-    songs_json = json.dumps(songs)
+    songs_json = json.dumps(songs, indent=4)
     file = open("databasesongs.json", "w")
     file.write(songs_json)
     file.close()
@@ -53,7 +53,7 @@ def album_speichern(datenalb):
     alben.append(album)
     print(album)
 
-    alben_json = json.dumps(alben)
+    alben_json = json.dumps(alben, indent=4)
     file = open("databasealb.json", "w")
     file.write(alben_json)
     file.close()
