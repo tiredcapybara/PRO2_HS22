@@ -1,16 +1,19 @@
 import json
 
 
+# Einträge auslesen aus JSON
 def auslesen():
     file = open("databasesongs.json")
     eintraege = json.load(file)
     return eintraege
 
 
+# Neue Einträge abspeichern
 def speichern(daten):
     eintraege = auslesen()
+    # id erstellen um Einträge wiederzufinden
     id_eintrag = eintraege[-1]["id"]
-
+    # Dict Struktur für Einträge aufbauen
     eintrag = {
         "id": id_eintrag + 1,
         "titel": daten["titel"],
@@ -29,6 +32,9 @@ def speichern(daten):
     file.write(eintraege_json)
     file.close()
     return
+
+
+# Filterungsfunktion für Einträge
 def sortiert_eintraege(merkmale):
     eintraege = auslesen()
     eintraege_gefiltert = []
@@ -36,6 +42,7 @@ def sortiert_eintraege(merkmale):
         checks = (
             merkmale["typ"] == "" or eintrag["typ"] == merkmale["typ"],
             merkmale["intepret"] == "" or eintrag["intepret"] == merkmale["intepret"],
+            merkmale["genre"] == "" or eintrag["genre"] == merkmale["genre"],
             merkmale["release"] == "" or eintrag["release"] == merkmale["release"],
             merkmale["gehoert"] == "" or eintrag["gehoert"] == merkmale["gehoert"],
             merkmale["rating"] == "" or eintrag["rating"] == merkmale["rating"]
@@ -44,12 +51,14 @@ def sortiert_eintraege(merkmale):
             eintraege_gefiltert.append(eintrag)
     return eintraege_gefiltert
 
+
 def auslesen_ausgewaehlt(eintrag_id):
     for eintrag in auslesen():
         if eintrag["id"] == eintrag_id:
             return eintrag
     return
 
+# Veränderungen in Beiträgen festhalten
 def eintrag_korrigiert(eintrag_id, daten):
     position = 0
     eintraege = auslesen()
@@ -63,7 +72,7 @@ def eintrag_korrigiert(eintrag_id, daten):
         "rating": daten["rating"],
         "typ": daten["typ"]
     }
-
+# Erstellung ids für Einträge
     for eintrag in eintraege:
         if eintrag["id"] == eintrag_id:
             print(eintrag["id"])
@@ -72,11 +81,9 @@ def eintrag_korrigiert(eintrag_id, daten):
         else:
             position = position + 1
 
-
+# Auf Daten in json zugreifen
     eintraege_json = json.dumps(eintraege, indent=4)
     file = open("databasesongs.json", "w")
     file.write(eintraege_json)
     file.close()
     return auslesen_ausgewaehlt(eintrag_id)
-
-

@@ -36,13 +36,14 @@ def archivopen():
 
     liste_release = [resultat['release'] for resultat in eintraege]
     liste_release = set(liste_release)
-
+# Auswahlmöglichkeiten Select Filter
     typ = ["Lied", "Album"]
     genre = liste_genre
     intepret = liste_intepreten
     monat = ["11-2022", "10-2022", "09-2022"]
     jahr = liste_release
     bewertung = ["1", "2", "3", "4", "5"]
+
     if request.method == "GET":
         eintraege = auslesen()
     if request.method == "POST":

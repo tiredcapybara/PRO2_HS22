@@ -93,7 +93,7 @@
         "id": 9,
         "titel": "What Do You Think About the Car?",
         "intepret": "Declan Mckenna",
-        "genre": "Indie Rock",
+        "genre": "Indie",
         "gehoert": "2022-11-24",
         "release": 2017,
         "rating": 5,
@@ -103,7 +103,7 @@
         "id": 10,
         "titel": "Be The Cowboy",
         "intepret": "Mitski",
-        "genre": "Indie Rock",
+        "genre": "Indie",
         "gehoert": "2022-11-13",
         "release": "2018",
         "rating": "4",
@@ -228,5 +228,35 @@
         "release": "2021",
         "rating": "4",
         "typ": "Lied"
+    },
+    {
+        "id": 23,
+        "titel": "Little Dark Age",
+        "intepret": "MGMT",
+        "genre": "Electronic",
+        "gehoert": "2022-10-19",
+        "release": "2018",
+        "rating": "3",
+        "typ": "Album"
+    },
+    {
+        "id": 24,
+        "titel": "You Better Believe!!!",
+        "intepret": "Declan Mckenna",
+        "genre": "Indie",
+        "gehoert": "2022-11-01",
+        "release": "2020",
+        "rating": "4",
+        "typ": "Lied"
+    },
+    {
+        "id": 25,
+        "titel": "Nevermind",
+        "intepret": "Nirvana",
+        "genre": "Grunge",
+        "gehoert": "2022-11-03",
+        "release": "1991",
+        "rating": "5",
+        "typ": "Album"
     }
 ]
