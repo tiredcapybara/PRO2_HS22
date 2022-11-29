@@ -35,5 +35,5 @@ body {
   margin-bottom: 60px; /* Margin bottom by footer height */
 }
 
-select {
+.filter-select {
 margin: 10px;}

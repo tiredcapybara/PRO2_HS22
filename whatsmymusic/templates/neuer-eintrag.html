@@ -1,8 +1,11 @@
+<!-- Header -->
 {% include "header.jinja" %}
+
 <div class="content-main">
     <h2>Neuer Eintrag</h2>
 
     <div class="container-fluid">
+        <!-- Formular zur Erstellung von Einträgen -->
         <form method="POST">
             <div class="form-group w-50">
                 <label for="titel">Titel</label>
@@ -43,16 +46,20 @@
             </div>
             <div class="row">
                 <div class="col-4">
-                     <div class="form-group">
+                    <div class="form-group">
                         <label for="typ">Typ</label>
-                        <input type="text" class="form-control" id="typ" name="typ" required>
+                        <select id="typ" class="form-control" name="typ" required>
+                            <option>Lied</option>
+                            <option>Album</option>
+                        </select>
                     </div>
                 </div>
             </div>
-                <div class="row">
-            <button type="submit" class="btn btn-lg btn-danger">Erstellen</button>
-                </div>
+            <div class="row">
+                <button type="submit" class="btn btn-lg btn-danger">Erstellen</button>
+            </div>
         </form>
     </div>
 </div>
+<!-- Footer -->
 {% include "footer.jinja" %}

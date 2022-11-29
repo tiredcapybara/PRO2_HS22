@@ -23,7 +23,7 @@
         "id": 2,
         "titel": "Brazil",
         "intepret": "Declan Mckenna",
-        "genre": "indie rock",
+        "genre": "Indie",
         "gehoert": "2022-11-10",
         "release": "2015",
         "rating": "5",
@@ -56,7 +56,7 @@
         "genre": "Pop",
         "gehoert": "2022-07-25",
         "release": "1982",
-        "rating": "5",
+        "rating": "2",
         "typ": "Lied"
     },
     {
@@ -198,5 +198,35 @@
         "release": "2013",
         "rating": "5",
         "typ": "Album"
+    },
+    {
+        "id": 20,
+        "titel": "Mutter",
+        "intepret": "Rammstein",
+        "genre": "Metal",
+        "gehoert": "2022-09-14",
+        "release": "2009",
+        "rating": "4",
+        "typ": "Album"
+    },
+    {
+        "id": 21,
+        "titel": "Waka Waka",
+        "intepret": "Shakira",
+        "genre": "Pop",
+        "gehoert": "2022-10-09",
+        "release": "2010",
+        "rating": "2",
+        "typ": "Lied"
+    },
+    {
+        "id": 22,
+        "titel": "Deja Vu",
+        "intepret": "Olivia Rodrigo",
+        "genre": "Pop",
+        "gehoert": "2022-10-31",
+        "release": "2021",
+        "rating": "4",
+        "typ": "Lied"
     }
 ]

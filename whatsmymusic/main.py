@@ -26,19 +26,29 @@ def neueintrag():
 # Route Archiv öffnen
 @app.route("/archiv", methods=["GET", "POST"])
 def archivopen():
+    #Die verschiedenen Filtermöglichkeiten als Listen formatieren
+    eintraege = auslesen()
+    liste_intepreten = [resultat['intepret'] for resultat in eintraege]
+    liste_intepreten = set(sorted(liste_intepreten))
+
+    liste_genre = [resultat['genre'] for resultat in eintraege]
+    liste_genre = set(sorted(liste_genre))
+
+    liste_release = [resultat['release'] for resultat in eintraege]
+    liste_release = set(liste_release)
+
     typ = ["Lied", "Album"]
-    genre = ["Rock", "Rap"]
-    intepret = ["Declan McKenna", "Eminem", "Lana Del Rey"]
+    genre = liste_genre
+    intepret = liste_intepreten
     monat = ["11-2022", "10-2022", "09-2022"]
-    jahr = [2002, 2015, 2022]
-    bewertung = [1, 2, 3, 4, 5]
+    jahr = liste_release
+    bewertung = ["1", "2", "3", "4", "5"]
     if request.method == "GET":
         eintraege = auslesen()
     if request.method == "POST":
         eintraege = sortiert_eintraege(request.form.to_dict())
     return render_template("archiv.html", typen=typ, genres=genre, intepreten=intepret, monate=monat, jahre=jahr,
-                               bewertungen=bewertung, eintraege=eintraege)
-
+                           bewertungen=bewertung, eintraege=eintraege)
 
 
 # Route Einträge bearbeiten

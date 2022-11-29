@@ -1,65 +1,80 @@
+<!-- Header -->
 {% include "header.jinja" %}
 <div class="content-main">
-    <h2>Archiv</h2>
-    <h4> Filtern nach....</h4>
-    <p>Welche Beiträge willst du filtern?</p>
-    <form method="POST">
-        <div class="row">
-            <select class="form-select" aria-label="Default select example" name="typ">
-                <option value="" selected>Nach Typ von Eintrag filtern</option>
+    <div>
+        <h2>Archiv</h2>
 
-                {%for typ in typen%}
-                <option value="{{ typ }}">{{ typ }}</option>
-                {% endfor %}
-            </select>
-            <select class="form-select" aria-label="Default select example" name="intepret">
-                <option value="" selected>Nach Künstler filtern</option>
-                {%for intepret in intepreten%}
-                <option value="{{ intepret }}">{{ intepret }}</option>
-                {% endfor %}
-            </select>
+        <h4>Einträge Filtern:</h4>
+        <!-- Filterung Eintraege -->
+        <form method="POST">
+            <div class="row">
+                <select class="form-select filter-select" aria-label="Default select example" name="typ">
+                    <option value="" selected>Nach Typ von Eintrag filtern</option>
+                    {%for typ in typen%}
+                    <option value="{{ typ }}">{{ typ }}</option>
+                    {% endfor %}
+                </select>
+                <select class="form-select filter-select" aria-label="Default select example" name="intepret">
+                    <option value="" selected>Nach Künstler filtern</option>
+                    {%for intepret in intepreten%}
+                    <option value="{{ intepret }}">{{ intepret }}</option>
+                    {% endfor %}
+                </select>
 
-            <select class="form-select" aria-label="Default select example" name="genre">
-                <option value="" selected>Nach Genre filtern</option>
-                {%for genre in genres %}
-                <option value="{{ genre }}">{{ genre }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <div class="row">
-            <select class="form-select" aria-label="Default select example" name="release">
-                <option value="" selected>Nach Erscheinungsjahr filtern</option>
-                {%for jahr in jahre %}
-                <option value="{{ jahr }}">{{ jahr }}</option>
-                {% endfor %}
-            </select>
+                <select class="form-select filter-select" aria-label="Default select example" name="genre">
+                    <option value="" selected>Nach Genre filtern</option>
+                    {%for genre in genres %}
+                    <option value="{{ genre }}">{{ genre }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="row">
+                <select class="form-select filter-select" aria-label="Default select example" name="release">
+                    <option value="" selected>Nach Erscheinungsjahr filtern</option>
+                    {%for jahr in jahre %}
+                    <option value="{{ jahr }}">{{ jahr }}</option>
+                    {% endfor %}
+                </select>
 
-            <select class="form-select" aria-label="Default select example" name="gehoert">
-                <option value="" selected>Nach Hörmonat filtern</option>
-                {%for monat in monate %}
-                <option value="{{ monat }}">{{ monat }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <div class="row">
-            <select class="form-select" aria-label="Default select example" name="rating">
-                <option value="" selected>Nach Bewertung filtern</option>
-                {%for bewertung in bewertungen %}
-                <option value="{{ bewertung }}">{{ bewertung }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <button type="submit" class="btn btn-lg btn-danger">Filtern</button>
-    </form>
+                <select class="form-select filter-select" aria-label="Default select example" name="gehoert">
+                    <option value="" selected>Nach Hörmonat filtern</option>
+                    {%for monat in monate %}
+                    <option value="{{ monat }}">{{ monat }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="row">
+                <select class="form-select filter-select" aria-label="Default select example" name="rating">
+                    <option value="" selected>Nach Bewertung filtern</option>
+                    {%for bewertung in bewertungen %}
+                    <option value="{{ bewertung }}">{{ bewertung }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-lg btn-danger">Filtern</button>
+        </form>
 
-</div>
+    </div>
 
-<div class="container-fluid">
+    <h4> Einträge:</h4>
+
     {%for eintrag in eintraege%}
-    <a href="/bearbeiten/{{eintrag.id}}" >Bearbeiten</a>
-    {{eintrag}}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{ eintrag.titel }}</h5>
+            <p class="card-text">Typ: {{ eintrag.typ }}</p>
+            <p class="card-text">Intepret: {{ eintrag.intepret }}</p>
+            <p class="card-text">Genre: {{ eintrag.genre }}</p>
+            <p class="card-text">Erscheinungsjahr: {{ eintrag.release }}</p>
+            <p class="card-text">Gehört am: {{ eintrag.gehoert }}</p>
+            <p class="card-text">Bewertung: {{ eintrag.rating }} von 5 Sternen</p>
+            <a class="btn btn-danger" href="/bearbeiten/{{eintrag.id}}" role="Button">Bearbeiten</a>
+        </div>
+
+    </div>
+
+
     {%endfor%}
 </div>
-
-
+<!-- Footer -->
 {% include "footer.jinja" %}
