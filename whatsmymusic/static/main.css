@@ -34,3 +34,6 @@ html {
 body {
   margin-bottom: 60px; /* Margin bottom by footer height */
 }
+
+select {
+margin: 10px;}
