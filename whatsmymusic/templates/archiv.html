@@ -37,9 +37,15 @@
                 </select>
 
                 <select class="form-select filter-select" aria-label="Default select example" name="gehoert">
-                    <option value="" selected>Nach Hörmonat filtern</option>
+                    <option value="" selected>Nach Monat filtern</option>
                     {%for monat in monate %}
                     <option value="{{ monat }}">{{ monat }}</option>
+                    {% endfor %}
+                </select>
+                <select class="form-select filter-select" aria-label="Default select example" name="hoerjahr">
+                    <option value="" selected>Nach Jahr filtern</option>
+                    {%for hoerjahr in hoerjahre %}
+                    <option value="{{ hoerjahr }}">{{ hoerjahr }}</option>
                     {% endfor %}
                 </select>
             </div>
@@ -54,27 +60,29 @@
             <button type="submit" class="btn btn-lg btn-danger">Filtern</button>
         </form>
 
+
+
     </div>
 
     <h4> Einträge:</h4>
 
-    {%for eintrag in eintraege%}
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">{{ eintrag.titel }}</h5>
-            <p class="card-text">Typ: {{ eintrag.typ }}</p>
-            <p class="card-text">Intepret: {{ eintrag.intepret }}</p>
-            <p class="card-text">Genre: {{ eintrag.genre }}</p>
-            <p class="card-text">Erscheinungsjahr: {{ eintrag.release }}</p>
-            <p class="card-text">Gehört am: {{ eintrag.gehoert }}</p>
-            <p class="card-text">Bewertung: {{ eintrag.rating }} von 5 Sternen</p>
-            <a class="btn btn-danger" href="/bearbeiten/{{eintrag.id}}" role="Button">Bearbeiten</a>
+    <div class="row">
+        {% for eintrag in eintraege %}
+        <div class="card card-archiv" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ eintrag.titel }}</h5>
+                <p class="card-text">Typ: {{ eintrag.typ }}</p>
+                <p class="card-text">Intepret: {{ eintrag.intepret }}</p>
+                <p class="card-text">Genre: {{ eintrag.genre }}</p>
+                <p class="card-text">Erscheinungsjahr: {{ eintrag.release }}</p>
+                <p class="card-text">Gehört am: {{ eintrag.gehoert }}</p>
+                <p class="card-text">Bewertung: {{ eintrag.rating }} von 5 Sternen</p>
+                <a class="btn btn-danger" href="/bearbeiten/{{eintrag.id}}" role="Button">Bearbeiten</a>
+                <a class="btn btn-secondary" href="/loeschen/{{eintrag.id}}" role="Button">Löschen</a>
+            </div>
         </div>
-
+        {% endfor %}
     </div>
-
-
-    {%endfor%}
 </div>
 <!-- Footer -->
 {% include "footer.jinja" %}

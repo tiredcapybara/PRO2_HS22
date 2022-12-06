@@ -95,7 +95,7 @@
         "intepret": "Declan Mckenna",
         "genre": "Indie",
         "gehoert": "2022-11-24",
-        "release": 2017,
+        "release": "2017",
         "rating": 5,
         "typ": "Album"
     },
@@ -136,8 +136,8 @@
         "genre": "Rap",
         "gehoert": "2022-11-26",
         "release": "2021",
-        "rating": "1",
-        "typ": "Album"
+        "rating": "2",
+        "typ": "Lied"
     },
     {
         "id": 14,
@@ -244,9 +244,9 @@
         "titel": "You Better Believe!!!",
         "intepret": "Declan Mckenna",
         "genre": "Indie",
-        "gehoert": "2022-11-01",
+        "gehoert": "2022-07-01",
         "release": "2020",
-        "rating": "4",
+        "rating": "5",
         "typ": "Lied"
     },
     {
@@ -258,5 +258,15 @@
         "release": "1991",
         "rating": "5",
         "typ": "Album"
+    },
+    {
+        "id": 26,
+        "titel": "Ride",
+        "intepret": "Lana Del Rey",
+        "genre": "Alternative",
+        "gehoert": "2021-06-06",
+        "release": "2012",
+        "rating": "4",
+        "typ": "Lied"
     }
 ]

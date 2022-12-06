@@ -1,5 +1,5 @@
-# What's My Music
-### Problembeschreibung
+# What's My Music?
+### Idee
 Musik ist etwas, das die meisten Menschen interessiert. 
 Viele setzen sich aber nicht sehr mit der von ihnen gehörten Musik auseinander. 
 Durch dieses Projekt soll man achtsamer über die Musik nachdenken und auch 
@@ -17,10 +17,16 @@ Statistiken ansehen. Beispielsweise:
 - Welche Genres und Bands haben die höchsten Bewertungen erhalten?
 
 ### Dateneingabe
-Man erstellt einen neuen Eintrag und gibt alle relevanten Informationen ein.
-Als Basis-Eintrag zählt ein Album oder ein einzelner Song, die relevanten Informationen
-wie Künstler, Genre, Erscheinungsjahr etc. werden auch festgehalten.
-Die Alben sowie die Lieder müssen jeweils auf einer Skala von 1 bis 5 bewertet werden.
-Anhand dieser extra-Informationen können dann die Listen und Statistiken erstellt werden.
+Durch ein Formlular kann man einen neuen Musik-Eintrag erstellen. Die relevanten Informationen hierfür 
+sind Künstler, Titel, Typ des Eintrages (Album oder Song), Genre, dem Erscheinungsjahrs, dem Datum an
+dem man das Lied oder Album gehört hat und eine Bewertung zwischen
+1 und 5 Sternen.
 
+### Datenverarbeitung
+Die Daten können im Archiv aufgerufen werden. Um nicht alle Beiträge durchgehen zu müssen, kann man
+nach jedem der eingegebenen Informationen filtern, um den gewünschten Eintrag schneller zu finden. Im
+Archiv kann man ausserdem auf die Einträge zugreifen und diese entweder bearbeiten, oder komplett löschen.
 
+### Statistiken
+Die Applikation wird dem User weiter die Möglichkeit bieten, verschiedenste Arten von Statistiken 
+anzusehen, welche die Daten des Hörverhaltens festhalten.
