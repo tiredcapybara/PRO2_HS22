@@ -1,6 +1,6 @@
 # Importe
 from flask import Flask, render_template, request, redirect
-from whatsmymusic.datenbank import auslesen, speichern, sortiert_eintraege, auslesen_ausgewaehlt, eintrag_korrigiert,\
+from whatsmymusic.datenbank import auslesen, speichern, sortiert_eintraege, auslesen_ausgewaehlt, eintrag_korrigiert, \
     eintrag_loeschen, liste_gehoert
 import plotly.express as px
 from plotly.offline import plot
@@ -32,10 +32,10 @@ def archivopen():
     # Die verschiedenen Filtermöglichkeiten als Listen formatieren
     eintraege = auslesen()
     liste_intepreten = [resultat['intepret'] for resultat in eintraege]
-    liste_intepreten = set(sorted(liste_intepreten))
+    liste_intepreten = set(liste_intepreten)
 
     liste_genre = [resultat['genre'] for resultat in eintraege]
-    liste_genre = set(sorted(liste_genre))
+    liste_genre = set(liste_genre)
 
     liste_release = [resultat['release'] for resultat in eintraege]
     liste_release = set(liste_release)

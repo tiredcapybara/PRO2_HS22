@@ -4,7 +4,7 @@
         "titel": "Mockingbird",
         "intepret": "Eminem",
         "genre": "Rap",
-        "gehoert": "2022-11-11",
+        "gehoert": "2021-11-11",
         "release": "2004",
         "rating": "5",
         "typ": "Lied"
@@ -14,7 +14,7 @@
         "titel": "Hello",
         "intepret": "Adele",
         "genre": "Pop",
-        "gehoert": "2022-11-11",
+        "gehoert": "2021-12-11",
         "release": "2015",
         "rating": "1",
         "typ": "Lied"
@@ -44,7 +44,7 @@
         "titel": "Kids",
         "intepret": "MGMT",
         "genre": "Electronic",
-        "gehoert": "2022-10-04",
+        "gehoert": "2021-10-04",
         "release": "2008",
         "rating": "4",
         "typ": "Lied"
@@ -66,7 +66,7 @@
         "genre": "Rap",
         "gehoert": "2022-11-20",
         "release": "2002",
-        "rating": "5",
+        "rating": "4",
         "typ": "Lied"
     },
     {
@@ -74,17 +74,17 @@
         "titel": "There Is A Light That Never Goes Out",
         "intepret": "The Smiths",
         "genre": "Rock",
-        "gehoert": "2022-11-29",
+        "gehoert": "2022-08-29",
         "release": "1986",
         "rating": "4",
-        "typ": "lied"
+        "typ": "Lied"
     },
     {
         "id": 8,
         "titel": "Encore",
         "intepret": "Eminem",
         "genre": "Rap",
-        "gehoert": "2022-11-22",
+        "gehoert": "2022-01-22",
         "release": "2004",
         "rating": "4",
         "typ": "Album"
@@ -164,7 +164,7 @@
         "titel": "Dollhouse",
         "intepret": "Melanie Martinez",
         "genre": "Pop",
-        "gehoert": "2022-11-04",
+        "gehoert": "2022-04-04",
         "release": "2015",
         "rating": "2",
         "typ": "Lied"
@@ -174,7 +174,7 @@
         "titel": "Little Talks",
         "intepret": "Of Monsters and Men",
         "genre": "Folk",
-        "gehoert": "2022-11-15",
+        "gehoert": "2022-04-15",
         "release": "2011",
         "rating": "4",
         "typ": "Lied"
@@ -267,6 +267,26 @@
         "gehoert": "2021-06-06",
         "release": "2012",
         "rating": "4",
+        "typ": "Lied"
+    },
+    {
+        "id": 27,
+        "titel": "good kid",
+        "intepret": "Kendrick Lamar",
+        "genre": "Hip Hop",
+        "gehoert": "2022-12-10",
+        "release": "2012",
+        "rating": "3",
+        "typ": "Lied"
+    },
+    {
+        "id": 28,
+        "titel": "Miss You",
+        "intepret": "southstar",
+        "genre": "Electronic",
+        "gehoert": "2022-12-12",
+        "release": "2022",
+        "rating": "5",
         "typ": "Lied"
     }
 ]

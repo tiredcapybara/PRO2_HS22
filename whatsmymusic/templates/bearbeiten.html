@@ -4,79 +4,74 @@
     <h2>Bearbeiten</h2>
 
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-4">
-                <div class="card" style="width: 36rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ eintrag.titel }}</h5>
 
-                        <form method="POST">
-                            <div class="form-group w-50">
-                                <label for="titel">Titel</label>
-                                <input type="text" class="form-control" value="{{eintrag.titel}}" id="titel"
-                                       name="titel" required>
-                            </div>
-                            <div class="form-group w-50">
-                                <label for="intepret">Intepret</label>
-                                <input type="text" class="form-control" value="{{eintrag.intepret}}" id="intepret"
-                                       name="intepret" required>
-                            </div>
-                            <div class="row">
-                                <div class="col-4">
-                                    <div class="form-group">
-                                        <label for="genre">Genre</label>
-                                        <input type="text" class="form-control" value="{{eintrag.genre}}" id="genre"
-                                               name="genre" required>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="form-group">
-                                        <label for="rating">Rating</label>
-                                        <input type="number" min="1" max="5" class="form-control"
-                                               value="{{eintrag.rating}}" id="rating" name="rating" required>
-                                    </div>
-                                </div>
-                            </div>
+        <form method="POST">
+            <div class="form-group w-50">
+                <label for="titel">Titel</label>
+                <input type="text" class="form-control" value="{{eintrag.titel}}" id="titel"
+                       name="titel" required>
+            </div>
+            <div class="form-group w-50">
+                <label for="intepret">Intepret</label>
+                <input type="text" class="form-control" value="{{eintrag.intepret}}" id="intepret"
+                       name="intepret" required>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="genre">Genre</label>
+                        <input type="text" class="form-control" value="{{eintrag.genre}}" id="genre"
+                               name="genre" required>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="rating">Rating</label>
+                        <input type="number" min="1" max="5" class="form-control"
+                               value="{{eintrag.rating}}" id="rating" name="rating" required>
+                    </div>
+                </div>
+            </div>
 
-                            <div class="row">
-                                <div class="col-4">
-                                    <div class="form-group">
-                                        <label for="gehoert">Gehört am</label>
-                                        <input type="date" class="form-control" value="{{eintrag.gehoert}}" id="gehoert"
-                                               name="gehoert" required>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="form-group">
-                                        <label for="release">Erscheinungsjahr</label>
-                                        <input type="number" class="form-control" value="{{eintrag.release}}"
-                                               id="release" name="release" required>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-4">
-                                    <div class="form-group">
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="gehoert">Gehört am</label>
+                        <input type="date" class="form-control" value="{{eintrag.gehoert}}" id="gehoert"
+                               name="gehoert" required>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="release">Erscheinungsjahr</label>
+                        <input type="number" class="form-control" value="{{eintrag.release}}"
+                               id="release" name="release" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group">
 
-                                        <label for="typ">Typ</label>
-                                        <select id="typ" class="form-control" name="typ" required>
-                                            <option>Lied</option>
-                                            <option>Album</option>
-                                        </select>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <button type="submit" class="btn btn-lg btn-danger">Abspeichern</button>
-                            </div>
-                        </form>
+                        <label for="typ">Typ</label>
+                        <select id="typ" class="form-control" name="typ" required>
+                            <option>Lied</option>
+                            <option>Album</option>
+                        </select>
 
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="row">
+                <button type="submit" class="btn btn-lg btn-danger">Abspeichern</button>
+            </div>
+        </form>
+
     </div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
 <!-- Footer -->
