@@ -6,7 +6,7 @@
         "genre": "Rap",
         "gehoert": "2021-11-11",
         "release": "2004",
-        "rating": "5",
+        "rating": "3",
         "typ": "Lied"
     },
     {
@@ -36,7 +36,7 @@
         "genre": "Pop",
         "gehoert": "2022-11-26",
         "release": "2017",
-        "rating": "3",
+        "rating": "2",
         "typ": "Lied"
     },
     {
@@ -126,8 +126,8 @@
         "genre": "Pop",
         "gehoert": "2022-11-26",
         "release": "2022",
-        "rating": "2",
-        "typ": "Album"
+        "rating": "1",
+        "typ": "Lied"
     },
     {
         "id": 13,
@@ -186,8 +186,8 @@
         "genre": "Rap",
         "gehoert": "2022-10-03",
         "release": "2010",
-        "rating": "3",
-        "typ": "Album"
+        "rating": "2",
+        "typ": "Lied"
     },
     {
         "id": 19,
@@ -288,5 +288,95 @@
         "release": "2022",
         "rating": "5",
         "typ": "Lied"
+    },
+    {
+        "id": 29,
+        "titel": "Music To Be Murdered By",
+        "intepret": "Eminem",
+        "genre": "Rap",
+        "gehoert": "2021-07-13",
+        "release": "2020",
+        "rating": "3",
+        "typ": "Album"
+    },
+    {
+        "id": 30,
+        "titel": "Helter Skelter",
+        "intepret": "The Beatles",
+        "genre": "Rock",
+        "gehoert": "2021-02-03",
+        "release": "1968",
+        "rating": "4",
+        "typ": "Lied"
+    },
+    {
+        "id": 31,
+        "titel": "Lucid Dreams",
+        "intepret": "Juice WRLD",
+        "genre": "Rap",
+        "gehoert": "2022-07-09",
+        "release": "2018",
+        "rating": "5",
+        "typ": "Lied"
+    },
+    {
+        "id": 32,
+        "titel": "Puppe",
+        "intepret": "Rammstein",
+        "genre": "Metal",
+        "gehoert": "2022-03-31",
+        "release": "2019",
+        "rating": "3",
+        "typ": "Lied"
+    },
+    {
+        "id": 33,
+        "titel": "In Utero",
+        "intepret": "Nirvana",
+        "genre": "Grunge",
+        "gehoert": "2021-05-20",
+        "release": "1993",
+        "rating": "4",
+        "typ": "Album"
+    },
+    {
+        "id": 34,
+        "titel": "Smells Like Teen Spirit",
+        "intepret": "Nirvana",
+        "genre": "Grunge",
+        "gehoert": "2021-06-30",
+        "release": "1991",
+        "rating": "5",
+        "typ": "Lied"
+    },
+    {
+        "id": 35,
+        "titel": "Take Me Home Country Roads",
+        "intepret": "John Denver",
+        "genre": "Country",
+        "gehoert": "2021-03-07",
+        "release": "1971",
+        "rating": "5",
+        "typ": "Lied"
+    },
+    {
+        "id": 36,
+        "titel": "BABY GODDAMN",
+        "intepret": "Tananai",
+        "genre": "Hip Hop",
+        "gehoert": "2022-08-09",
+        "release": "2022",
+        "rating": "3",
+        "typ": "Lied"
+    },
+    {
+        "id": 37,
+        "titel": "Teatro d\u2019ira \u2013 Vol. I",
+        "intepret": "Maneskin",
+        "genre": "Rock",
+        "gehoert": "2021-10-09",
+        "release": "2021",
+        "rating": "1",
+        "typ": "Album"
     }
 ]

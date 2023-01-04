@@ -5,64 +5,80 @@
         <h2>Archiv</h2>
 
         <h4>Einträge Filtern:</h4>
-        <!-- Filterung Eintraege -->
+        <!-- Filterung Eintraege durch Formular -->
         <form method="POST">
             <div class="row">
-                <select class="form-select filter-select" aria-label="Default select example" name="typ">
-                    <option value="" selected>Nach Typ von Eintrag filtern</option>
-                    {%for typ in typen%}
-                    <option value="{{ typ }}">{{ typ }}</option>
-                    {% endfor %}
-                </select>
-                <select class="form-select filter-select" aria-label="Default select example" name="intepret">
-                    <option value="" selected>Nach Künstler filtern</option>
-                    {%for intepret in intepreten%}
-                    <option value="{{ intepret }}">{{ intepret }}</option>
-                    {% endfor %}
-                </select>
-
-                <select class="form-select filter-select" aria-label="Default select example" name="genre">
-                    <option value="" selected>Nach Genre filtern</option>
-                    {%for genre in genres %}
-                    <option value="{{ genre }}">{{ genre }}</option>
-                    {% endfor %}
-                </select>
+                <div class="col-lg-5">
+                    <select class="form-select filter-select" aria-label="Default select example" name="typ">
+                        <option value="" selected>Nach Typ von Eintrag filtern</option>
+                        {%for typ in typen%}
+                        <option value="{{ typ }}">{{ typ }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-lg-5">
+                    <select class="form-select filter-select" aria-label="Default select example" name="intepret">
+                        <option value="" selected>Nach Künstler filtern</option>
+                        {%for intepret in intepreten%}
+                        <option value="{{ intepret }}">{{ intepret }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
             </div>
             <div class="row">
-                <select class="form-select filter-select" aria-label="Default select example" name="release">
-                    <option value="" selected>Nach Erscheinungsjahr filtern</option>
-                    {%for jahr in jahre %}
-                    <option value="{{ jahr }}">{{ jahr }}</option>
-                    {% endfor %}
-                </select>
-
-                <select class="form-select filter-select" aria-label="Default select example" name="gehoert">
-                    <option value="" selected>Nach Monat filtern</option>
-                    {%for monat in monate %}
-                    <option value="{{ monat }}">{{ monat }}</option>
-                    {% endfor %}
-                </select>
-                <select class="form-select filter-select" aria-label="Default select example" name="hoerjahr">
-                    <option value="" selected>Nach Jahr filtern</option>
-                    {%for hoerjahr in hoerjahre %}
-                    <option value="{{ hoerjahr }}">{{ hoerjahr }}</option>
-                    {% endfor %}
-                </select>
+                <div class="col-lg-5">
+                    <select class="form-select filter-select" aria-label="Default select example" name="genre">
+                        <option value="" selected>Nach Genre filtern</option>
+                        {%for genre in genres %}
+                        <option value="{{ genre }}">{{ genre }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-lg-5">
+                    <select class="form-select filter-select" aria-label="Default select example" name="release">
+                        <option value="" selected>Nach Erscheinungsjahr filtern</option>
+                        {%for jahr in jahre %}
+                        <option value="{{ jahr }}">{{ jahr }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
             </div>
             <div class="row">
-                <select class="form-select filter-select" aria-label="Default select example" name="rating">
-                    <option value="" selected>Nach Bewertung filtern</option>
-                    {%for bewertung in bewertungen %}
-                    <option value="{{ bewertung }}">{{ bewertung }}</option>
-                    {% endfor %}
-                </select>
+                <div class="col-lg-5">
+                    <select class="form-select filter-select" aria-label="Default select example" name="gehoert">
+                        <option value="" selected>Nach Monat filtern</option>
+                        {%for monat in monate %}
+                        <option value="{{ monat }}">{{ monat }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-lg-5">
+                    <select class="form-select filter-select" aria-label="Default select example" name="hoerjahr">
+                        <option value="" selected>Nach Jahr filtern</option>
+                        {%for hoerjahr in hoerjahre %}
+                        <option value="{{ hoerjahr }}">{{ hoerjahr }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
             </div>
-            <button type="submit" class="btn btn-lg btn-danger">Filtern</button>
+            <div class="row">
+                <div class="col-lg-5">
+                    <select class="form-select filter-select" aria-label="Default select example" name="rating">
+                        <option value="" selected>Nach Bewertung filtern</option>
+                        {%for bewertung in bewertungen %}
+                        <option value="{{ bewertung }}">{{ bewertung }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+
+            </div>
+            <button type="submit" class="btn-form btn btn-lg btn-danger">Filtern</button>
         </form>
 
 
     </div>
-
+<!-- Auflistung der Einträge -->
     <h4> Einträge:</h4>
 
     <div class="row">

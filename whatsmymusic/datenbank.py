@@ -11,7 +11,7 @@ def auslesen():
 # Neue Einträge abspeichern
 def speichern(daten):
     eintraege = auslesen()
-    # id erstellen um Einträge wiederzufinden
+    # id erstellen um Einträge wiederzufinden für löschen und bearbeiten
     id_eintrag = eintraege[-1]["id"]
     # Dict Struktur für Einträge aufbauen
     eintrag = {
@@ -26,18 +26,18 @@ def speichern(daten):
     }
     eintraege.append(eintrag)
     print(eintraege)
-
+    # JSON formatieren und auslesen
     eintraege_json = json.dumps(eintraege, indent=4)
     file = open("databasesongs.json", "w")
     file.write(eintraege_json)
     file.close()
     return
 
-
 # Filterungsfunktion für Einträge
 def sortiert_eintraege(merkmale):
     eintraege = auslesen()
     eintraege_gefiltert = []
+    # Checks für Übereinstimmung der Filterung
     for eintrag in eintraege:
         date = eintrag["gehoert"]
         date = datetime.strptime(date, "%Y-%m-%d")
@@ -90,7 +90,7 @@ def eintrag_korrigiert(eintrag_id, daten):
     file.write(eintraege_json)
     file.close()
     return auslesen_ausgewaehlt(eintrag_id)
-
+# JSON Liste anpassen nach Löschung
 def eintrag_loeschen(eintrag_id):
     eintraege = auslesen()
     eintraege_neu = []
@@ -102,7 +102,7 @@ def eintrag_loeschen(eintrag_id):
     file.write(eintraege_json)
     file.close()
     return
-
+# Funktion für aufteilung Datum in Monat und Jahr
 def liste_gehoert():
     eintraege = auslesen()
     gehoert_monate = []
@@ -115,10 +115,24 @@ def liste_gehoert():
         if date.year not in gehoert_jahre:
             gehoert_jahre.append(date.year)
 
+    gehoert_monate = sorted(gehoert_monate)
+    gehoert_jahre = sorted(gehoert_jahre)
+
     resultat = {
         "monate": gehoert_monate,
         "jahre": gehoert_jahre
     }
     return resultat
+# Erstellung der Listen für die Statistiken
+def auslesen_statistiken():
+    eintraege = auslesen()
+    liste_genres = [resultat['genre'] for resultat in eintraege]
+    liste_genres = set(liste_genres)
+    liste_genres = sorted(liste_genres)
+
+    liste_ratings = [resultat['rating'] for resultat in eintraege]
+    liste_ratings = set(liste_ratings)
+    liste_ratings = sorted(liste_ratings)
+
 
 

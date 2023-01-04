@@ -1,9 +1,10 @@
 # Importe
 from flask import Flask, render_template, request, redirect
 from whatsmymusic.datenbank import auslesen, speichern, sortiert_eintraege, auslesen_ausgewaehlt, eintrag_korrigiert, \
-    eintrag_loeschen, liste_gehoert
+    eintrag_loeschen, liste_gehoert, auslesen_statistiken
 import plotly.express as px
 from plotly.offline import plot
+import pandas as pd
 
 app = Flask("whatsmymusic")
 
@@ -33,12 +34,16 @@ def archivopen():
     eintraege = auslesen()
     liste_intepreten = [resultat['intepret'] for resultat in eintraege]
     liste_intepreten = set(liste_intepreten)
+    liste_intepreten = sorted(liste_intepreten)
 
     liste_genre = [resultat['genre'] for resultat in eintraege]
     liste_genre = set(liste_genre)
+    liste_genre = sorted(liste_genre)
 
     liste_release = [resultat['release'] for resultat in eintraege]
     liste_release = set(liste_release)
+    liste_release = sorted(liste_release)
+
     # Auswahlmöglichkeiten Select Filter
     typ = ["Lied", "Album"]
     genre = liste_genre
@@ -47,7 +52,7 @@ def archivopen():
     hoerjahr = liste_gehoert()["jahre"]
     jahr = liste_release
     bewertung = ["1", "2", "3", "4", "5"]
-
+    # Eintraege nach Filterung anzeigen
     if request.method == "GET":
         eintraege = auslesen()
     if request.method == "POST":
@@ -66,32 +71,39 @@ def eintragbearbeiten(eintrag_id):
         eintrag_korrigiert(int(eintrag_id), request.form.to_dict())
         return redirect("/archiv")
 
-
+# Route Eintraege löschen
 @app.route("/loeschen/<eintrag_id>", methods=["GET", "POST"])
-def eintraglöschenopen(eintrag_id):
+def eintragloeschenopen(eintrag_id):
     eintrag_loeschen(int(eintrag_id))
     return redirect("/archiv")
-
-
-# Route Datenvisualisierung
-@app.route("/statistiken")
-def statistikopen():
+# Route Statistiken
+@app.route("/statistiken", methods=["GET", "POST"])
+def grafik():
     eintraege = auslesen()
-    rating = {}
+    ratings = {}
     for eintrag in eintraege:
-        if eintrag[1] not in rating:
-            rating[eintrag[1]] = 1
+        if eintrag["rating"] not in ratings:
+            ratings[eintrag["rating"]] = 1
         else:
-            rating[eintrag[1]] += 1
+            ratings[eintrag["rating"]] += 1
 
-    x = rating.keys()
-    y = rating.values()
+    x = ratings.keys()
+    y = ratings.values()
     fig = px.bar(x=x, y=y)
     div = plot(fig, output_type="div")
-
-    return render_template("statistiken.html", barchart=div, seitentitel="Piechart")
+    if request.method == "GET":
+        return render_template("statistiken.html", barchart=div, seitentitel="Piechart", x="Bewertungen", y="sepal_width",
+                               color="species")
+"""
+    df = pd.DataFrame(eintraege)
+    dff = df.groupby('genre').count().reset_index()
+    fig = px.bar(dff, x="genre", y="id")
+    fig.show()
+"""
 
 
 # Run App
 if __name__ == "__main__":
     app.run(debug=True, port=5005)
+
+

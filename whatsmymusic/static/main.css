@@ -21,8 +21,9 @@ margin-left: 25px;}
 position: absolute;
 bottom: 0;
 width: 100%;
-height: 60px; /* Set the fixed height of the footer here */
-line-height: 60px; /* Vertically center the text there */}
+height: 60px;
+line-height: 60px;
+}
 
 .card {
 margin-bottom: 20px;}
@@ -32,11 +33,24 @@ html {
   min-height: 100%;
 }
 body {
-  margin-bottom: 60px; /* Margin bottom by footer height */
+  margin-bottom: 60px;
 }
 
 .filter-select {
 margin: 10px;}
 
 .card-archiv {
-margin: 10px;}
+margin: 10px;
+}
+
+label {
+margin-top: 5px;
+}
+
+.btn-form {
+width: 150px;
+margin-top: 20px;
+margin-left: 10px;}
+
+.btn-stat {
+margin-top: 20px;}
