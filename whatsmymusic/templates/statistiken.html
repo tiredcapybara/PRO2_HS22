@@ -3,29 +3,33 @@
 <div class="content-main">
     <h2>Statistiken</h2>
 
-        Was für eine Statistik willst du ausgeben?
-<form method="POST">
-    <div class="row">
-                <div class="col-lg-5">
-                    <select class="form-select filter-select" aria-label="Default select example" name="x-achse">
-                        <option value="" selected>Welche Daten sollen auf der X-Achse zu finden sein?</option>
-                        <option value="rating">Bewertung</option>
-                        <option value="count">Künstler</option>
-                        <option value="count">Genre</option>
+    Was für eine Statistik willst du ausgeben?
+    <form method="POST">
+        <div class="row">
+            <div class="col-lg-5">
+                <select class="form-select filter-select" aria-label="Default select example" name="x-achse">
+                    <option value="" selected>Welche Daten sollen auf der X-Achse zu finden sein?</option>
+                    <option value="rating">Bewertung</option>
+                    <option value="intepret">Künstler</option>
+                    <option value="genre">Genre</option>
 
-                    </select>
-                </div>
-                <div class="col-lg-5">
-                    <select class="form-select filter-select" aria-label="Default select example" name="y-achse">
-                        <option value="" selected>Welche Daten sollen auf der Y-Achse zu finden sein?</option>
-                        <option value="count">Anzahl Einträge</option>
-                    </select>
-                </div>
+                </select>
             </div>
-    <button type="submit" class="btn-stat btn btn-lg btn-danger">Statistik erstellen</button>
+            <div class="col-lg-5">
+                <select class="form-select filter-select" aria-label="Default select example" name="y-achse">
+                    <option value="" selected>Welche Daten sollen auf der Y-Achse zu finden sein?</option>
+                    <option value="count">Anzahl Einträge</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn-stat btn btn-lg btn-danger">Statistik erstellen</button>
 
-</form>
-{{ barchart|safe }}
+    </form>
+    {% if diagramm_titel != "false" %}
+    <h3>{{diagramm_titel}}:</h3>
+
+    {% endif %}
+    {{ barchart|safe }}
 
 </div>
 

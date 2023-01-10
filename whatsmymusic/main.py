@@ -1,10 +1,7 @@
 # Importe
 from flask import Flask, render_template, request, redirect
 from whatsmymusic.datenbank import auslesen, speichern, sortiert_eintraege, auslesen_ausgewaehlt, eintrag_korrigiert, \
-    eintrag_loeschen, liste_gehoert, auslesen_statistiken
-import plotly.express as px
-from plotly.offline import plot
-import pandas as pd
+    eintrag_loeschen, liste_gehoert, statistik_zeichnen
 
 app = Flask("whatsmymusic")
 
@@ -30,7 +27,8 @@ def neueintrag():
 # Route Archiv öffnen
 @app.route("/archiv", methods=["GET", "POST"])
 def archivopen():
-    # Die verschiedenen Filtermöglichkeiten als Listen formatieren
+    # Die verschiedenen Filtermöglichkeiten als Listen formatieren, hier werden alle Einträge ausgelesen und
+    # die Listen mit nur einzigartigen Einträgen erstellt um nachher diese in den Auswahlfelder angezeigt zu kriegen
     eintraege = auslesen()
     liste_intepreten = [resultat['intepret'] for resultat in eintraege]
     liste_intepreten = set(liste_intepreten)
@@ -44,7 +42,7 @@ def archivopen():
     liste_release = set(liste_release)
     liste_release = sorted(liste_release)
 
-    # Auswahlmöglichkeiten Select Filter
+    # Auswahlmöglichkeiten Select Filter erstellen
     typ = ["Lied", "Album"]
     genre = liste_genre
     intepret = liste_intepreten
@@ -52,9 +50,11 @@ def archivopen():
     hoerjahr = liste_gehoert()["jahre"]
     jahr = liste_release
     bewertung = ["1", "2", "3", "4", "5"]
-    # Eintraege nach Filterung anzeigen
+
+    # Eintraege nach Filterung anzeigen, in der GET Methode zeigt es automatisch alle Einträge an
     if request.method == "GET":
         eintraege = auslesen()
+    # Nach der Auswahl der Filter werden nur die Einträge angezeigt, welche noch im gefilterten Dict sind
     if request.method == "POST":
         eintraege = sortiert_eintraege(request.form.to_dict())
     return render_template("archiv.html", typen=typ, genres=genre, intepreten=intepret, monate=monat,
@@ -76,34 +76,25 @@ def eintragbearbeiten(eintrag_id):
 def eintragloeschenopen(eintrag_id):
     eintrag_loeschen(int(eintrag_id))
     return redirect("/archiv")
+
+
 # Route Statistiken
 @app.route("/statistiken", methods=["GET", "POST"])
 def grafik():
-    eintraege = auslesen()
-    ratings = {}
-    for eintrag in eintraege:
-        if eintrag["rating"] not in ratings:
-            ratings[eintrag["rating"]] = 1
-        else:
-            ratings[eintrag["rating"]] += 1
-
-    x = ratings.keys()
-    y = ratings.values()
-    fig = px.bar(x=x, y=y)
-    div = plot(fig, output_type="div")
+    #Durch diagramm_titel wird das h3 im html erstellt, um das Diagramm besser deuten zu können
     if request.method == "GET":
-        return render_template("statistiken.html", barchart=div, seitentitel="Piechart", x="Bewertungen", y="sepal_width",
-                               color="species")
-"""
-    df = pd.DataFrame(eintraege)
-    dff = df.groupby('genre').count().reset_index()
-    fig = px.bar(dff, x="genre", y="id")
-    fig.show()
-"""
-
+        return render_template("statistiken.html", diagramm_titel="false")
+    if request.method == "POST":
+        auswahl_x = request.form.to_dict()["x-achse"]
+        div = statistik_zeichnen(auswahl_x)
+        if auswahl_x == "rating":
+            diagramm_titel = "Bewertungen"
+        elif auswahl_x == "intepret":
+            diagramm_titel = "Intepreten"
+        else:
+            diagramm_titel = "Genres"
+        return render_template("statistiken.html", barchart=div, diagramm_titel=diagramm_titel)
 
 # Run App
 if __name__ == "__main__":
     app.run(debug=True, port=5005)
-
-

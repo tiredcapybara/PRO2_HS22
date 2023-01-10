@@ -1,5 +1,8 @@
 import json
 from datetime import datetime
+import plotly.express as px
+from plotly.offline import plot
+
 
 # Einträge auslesen aus JSON
 def auslesen():
@@ -33,6 +36,7 @@ def speichern(daten):
     file.close()
     return
 
+
 # Filterungsfunktion für Einträge
 def sortiert_eintraege(merkmale):
     eintraege = auslesen()
@@ -61,6 +65,7 @@ def auslesen_ausgewaehlt(eintrag_id):
             return eintrag
     return
 
+
 # Veränderungen in Beiträgen festhalten
 def eintrag_korrigiert(eintrag_id, daten):
     position = 0
@@ -75,7 +80,7 @@ def eintrag_korrigiert(eintrag_id, daten):
         "rating": daten["rating"],
         "typ": daten["typ"]
     }
-# Erstellung ids für Einträge
+    # Erstellung ids für Einträge
     for eintrag in eintraege:
         if eintrag["id"] == eintrag_id:
             print(eintrag["id"])
@@ -84,12 +89,14 @@ def eintrag_korrigiert(eintrag_id, daten):
         else:
             position = position + 1
 
-# Auf Daten in json zugreifen
+    # Auf Daten in json zugreifen
     eintraege_json = json.dumps(eintraege, indent=4)
     file = open("databasesongs.json", "w")
     file.write(eintraege_json)
     file.close()
     return auslesen_ausgewaehlt(eintrag_id)
+
+
 # JSON Liste anpassen nach Löschung
 def eintrag_loeschen(eintrag_id):
     eintraege = auslesen()
@@ -102,7 +109,9 @@ def eintrag_loeschen(eintrag_id):
     file.write(eintraege_json)
     file.close()
     return
-# Funktion für aufteilung Datum in Monat und Jahr
+
+
+# Funktion für Aufteilung Datum in Monat und Jahr
 def liste_gehoert():
     eintraege = auslesen()
     gehoert_monate = []
@@ -123,16 +132,38 @@ def liste_gehoert():
         "jahre": gehoert_jahre
     }
     return resultat
-# Erstellung der Listen für die Statistiken
-def auslesen_statistiken():
+
+
+def statistik_zeichnen(auswahl_x):
     eintraege = auslesen()
-    liste_genres = [resultat['genre'] for resultat in eintraege]
-    liste_genres = set(liste_genres)
-    liste_genres = sorted(liste_genres)
+    ratings = {}
+    for eintrag in eintraege:
+        if eintrag["rating"] not in ratings:
+            ratings[eintrag["rating"]] = 1
+        else:
+            ratings[eintrag["rating"]] += 1
+    genres = {}
+    for eintrag in eintraege:
+        if eintrag["genre"] not in genres:
+            genres[eintrag["genre"]] = 1
+        else:
+            genres[eintrag["genre"]] += 1
+    intepreten = {}
+    for eintrag in eintraege:
+        if eintrag["intepret"] not in intepreten:
+            intepreten[eintrag["intepret"]] = 1
+        else:
+            intepreten[eintrag["intepret"]] += 1
 
-    liste_ratings = [resultat['rating'] for resultat in eintraege]
-    liste_ratings = set(liste_ratings)
-    liste_ratings = sorted(liste_ratings)
-
-
-
+    if auswahl_x == "rating":
+        x = ratings.keys()
+        y = ratings.values()
+    elif auswahl_x == "genre":
+        x = genres.keys()
+        y = genres.values()
+    else:
+        x = intepreten.keys()
+        y = intepreten.values()
+    fig = px.bar(x=x, y=y)
+    div = plot(fig, output_type="div")
+    return div
