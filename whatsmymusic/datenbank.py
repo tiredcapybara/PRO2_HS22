@@ -1,22 +1,24 @@
+#Importe für Datenspeicherung, Datumsformate und Balkendiagramm zeichnen
 import json
 from datetime import datetime
 import plotly.express as px
 from plotly.offline import plot
 
-
-# Einträge auslesen aus JSON
+#Funktion um Einträge auszulesen aus json File
 def auslesen():
     file = open("databasesongs.json")
+    #Variable eintraege wird dem Inhalt des json Files gleichgesetzt
     eintraege = json.load(file)
+    #Einträge werden ausgegeben
     return eintraege
-
 
 # Neue Einträge abspeichern
 def speichern(daten):
+    #Variable eintraege wird Daten aus File gleichgesetzt
     eintraege = auslesen()
-    # id erstellen um Einträge wiederzufinden für löschen und bearbeiten
+    # id erstellen um Einträge wiederzufinden für löschen und bearbeiten. Einzigartig für jeden Eintrag
     id_eintrag = eintraege[-1]["id"]
-    # Dict Struktur für Einträge aufbauen
+    # Dictionary Struktur für Einträge aufbauen
     eintrag = {
         "id": id_eintrag + 1,
         "titel": daten["titel"],
@@ -27,15 +29,15 @@ def speichern(daten):
         "rating": daten["rating"],
         "typ": daten["typ"]
     }
+    #Neuer Eintrag wird am Ende des Dictionary angehängt
     eintraege.append(eintrag)
-    print(eintraege)
-    # JSON formatieren und auslesen
+    #json formatieren
     eintraege_json = json.dumps(eintraege, indent=4)
+    #json file wird verändert
     file = open("databasesongs.json", "w")
     file.write(eintraege_json)
     file.close()
     return
-
 
 # Filterungsfunktion für Einträge
 def sortiert_eintraege(merkmale):
@@ -58,13 +60,11 @@ def sortiert_eintraege(merkmale):
             eintraege_gefiltert.append(eintrag)
     return eintraege_gefiltert
 
-
 def auslesen_ausgewaehlt(eintrag_id):
     for eintrag in auslesen():
         if eintrag["id"] == eintrag_id:
             return eintrag
     return
-
 
 # Veränderungen in Beiträgen festhalten
 def eintrag_korrigiert(eintrag_id, daten):
@@ -96,7 +96,6 @@ def eintrag_korrigiert(eintrag_id, daten):
     file.close()
     return auslesen_ausgewaehlt(eintrag_id)
 
-
 # JSON Liste anpassen nach Löschung
 def eintrag_loeschen(eintrag_id):
     eintraege = auslesen()
@@ -109,7 +108,6 @@ def eintrag_loeschen(eintrag_id):
     file.write(eintraege_json)
     file.close()
     return
-
 
 # Funktion für Aufteilung Datum in Monat und Jahr
 def liste_gehoert():
@@ -133,9 +131,11 @@ def liste_gehoert():
     }
     return resultat
 
-
+#Funktion für das Zeichnen des Diagramms
 def statistik_zeichnen(auswahl_x):
+    #Variable eintraege wird Daten aus File gleichgesetzt
     eintraege = auslesen()
+    #Leeres Dictionary für Diagramm-Daten wird erstellt
     ratings = {}
     for eintrag in eintraege:
         if eintrag["rating"] not in ratings:
@@ -155,7 +155,9 @@ def statistik_zeichnen(auswahl_x):
         else:
             intepreten[eintrag["intepret"]] += 1
 
+    #Check, welche Daten für Diagramm ausgewählt wurden
     if auswahl_x == "rating":
+        #Das erstellte Dictionary wird in Keys und Values aufgeteilt. X-Achse = keys Y-Achse = values (diese sind je nach Diagramm verschieden)
         x = ratings.keys()
         y = ratings.values()
     elif auswahl_x == "genre":
@@ -164,6 +166,8 @@ def statistik_zeichnen(auswahl_x):
     else:
         x = intepreten.keys()
         y = intepreten.values()
+
+    #Diagramm zeichnen
     fig = px.bar(x=x, y=y)
     div = plot(fig, output_type="div")
     return div

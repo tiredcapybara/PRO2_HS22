@@ -378,5 +378,15 @@
         "release": "2021",
         "rating": "1",
         "typ": "Album"
+    },
+    {
+        "id": 38,
+        "titel": "The Spins",
+        "intepret": "Mac Miller",
+        "genre": "Rap",
+        "gehoert": "2023-01-10",
+        "release": "2010",
+        "rating": "5",
+        "typ": "Lied"
     }
 ]
